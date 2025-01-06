@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>丰墙登录界面</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="background" id="background"></div>
+        <div class="login-box">
+            <h2>登录</h2>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="username">用户名</label>
+                    <input type="text" id="username" name="username" placeholder="请输入用户名" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">密码</label>
+                    <input type="password" id="password" name="password" placeholder="密码至少为6位数" required>
+                </div>
+                <div class="input-group">
+                    <label for="backgroundImage">自定义背景图片</label>
+                    <input type="file" id="backgroundImage" name="backgroundImage" accept="image/*">
+                </div>
+                <button type="submit">登录</button>
+            </form>
+        </div>
+    </div>
+    <footer style="display: flex; background: #000; color: aqua; justify-content: center; pad: 10px 20px; width: 100%; position: fixed; bottom: 0; z-index: 100;">
+        <div>
+            © 2025 YJ丰墙 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="./callme.html">关于我</a>
+            <a href="./callme.html">联系我</a>
+        </div>
+    </footer>
+    <script src="./js/script.js"></script>
+</body>
+</html>
