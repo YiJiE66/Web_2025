@@ -5,12 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>丰墙登录界面</title>
     <link rel="stylesheet" href="./css/styles.css">
+    <style>
+        /* 静音按钮的样式 */
+        #muteAudioButton {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 20px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        /* 静音按钮悬停效果 */
+        #muteAudioButton:hover {
+            background-color: #0056b3;
+        }
+
+        /* 静音按钮点击效果 */
+        #muteAudioButton:active {
+            background-color: #003d7a;
+        }
+    </style>
 </head>
 <body>
+    <audio id="backgroundAudio" loop>
+        <source src="./mp3/1.mp3" type="audio/mpeg">宝宝 你的浏览器不支持audio元素捏
+    </audio>
     <div class="login-container">
         <div class="background" id="background"></div>
         <div class="login-box">
             <h2>登录</h2>
+            <button id="muteAudioButton">静音背景音乐</button>
             <form id="loginForm">
                 <div class="input-group">
                     <label for="username">用户名</label>
@@ -28,13 +56,52 @@
             </form>
         </div>
     </div>
-    <footer style="display: flex; background: #000; color: aqua; justify-content: center; pad: 10px 20px; width: 100%; position: fixed; bottom: 0; z-index: 100;">
+    <footer style="display: flex; background: #000; color: aqua; justify-content: center; padding: 10px 20px; width: 100%; position: fixed; bottom: 0; z-index: 100;">
         <div>
             © 2025 YJ丰墙 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="./callme.html">关于我</a>
             <a href="./callme.html">联系我</a>
         </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var audio = document.getElementById('backgroundAudio');
+            var muteButton = document.getElementById('muteAudioButton');
+
+            // 页面加载后播放音频
+            audio.play().catch(function(error) {
+                console.error('自动播放音频失败:', error);
+                // 提示用户点击页面来播放音乐
+                alert('请点击页面以播放背景音乐');
+            });
+
+            // 静音按钮点击事件
+            muteButton.addEventListener('click', function() {
+                if (audio.muted) {
+                    audio.muted = false;
+                    muteButton.textContent = '静音背景音乐';
+                } else {
+                    audio.muted = true;
+                    muteButton.textContent = '取消静音背景音乐';
+                }
+            });
+
+            // 检查音频元素是否正确加载
+            audio.addEventListener('loadedmetadata', function() {
+                console.log('音频已加载');
+            });
+
+            audio.addEventListener('error', function() {
+                console.error('音频加载出错:', audio.error);
+            });
+
+            document.addEventListener('click', function() {
+                audio.play().catch(function(error) {
+                    console.error('播放音频时出错:', error);
+                });
+            });
+        });
+    </script>
     <script src="./js/script.js"></script>
 </body>
 </html>

@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
         frames = 0;
 
         // 定义烟花炸开时显示的文字选项
-        textOptions = ['新年快乐', '2025', '祝你幸福', '我喜欢你','你是最好的宝宝' ,'千般万语，只为与君共赏','一切顺利，吉祥如意','by——YJ'];
+        textOptions = ['新年快乐','蛇年快乐', '2025', '祝你幸福', '万事如意','你是最好的' ,'千般万语，只为与君共赏','一切顺利，吉祥如意','by——YJ'];
 
         // 定义烟花炸开时显示的文字颜色选项
         colorOptions = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff', '#ffffff'];
@@ -156,8 +156,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const randomColor = colorOptions[Math.floor(Math.random() * colorOptions.length)];
             text.style.color = randomColor;
 
-            text.style.left = `${point.x - 50}px`; // 调整文字位置，使其居中
-            text.style.top = `${point.y - 20}px`;  // 调整文字位置，使其居中
+            text.style.left = `${point.x - 50}px`; // 调整文字位置
+            text.style.top = `${point.y - 20}px`;  // 调整文字位置
 
             textContainer.appendChild(text);
 
